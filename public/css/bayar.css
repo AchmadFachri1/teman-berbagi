@@ -1,0 +1,46 @@
+/* ===== BAYAR PAGE (shared) ===== */
+.bayar-page { background:#f0f0f0; min-height:100vh; padding-top:80px; padding-bottom:40px; }
+.bayar-mini-banner { display:flex; align-items:center; gap:16px; background:#e0e0e0; padding:16px 24px; margin-bottom:0; }
+.bayar-mini-img { width:80px; height:60px; border-radius:8px; overflow:hidden; flex-shrink:0; }
+.bayar-mini-img img { width:100%; height:100%; object-fit:cover; }
+.bayar-mini-title { font-size:13px; font-weight:500; color:#333; line-height:1.4; }
+
+.bayar-section { background:#fff; margin:0; padding:20px 24px; border-bottom:1px solid #e0e0e0; }
+.bayar-section:last-of-type { border-bottom:none; }
+.bayar-section-label     { font-size:14px; font-weight:500; color:#333; margin-bottom:12px; text-align:center; }
+.bayar-section-label-big { font-size:18px; font-weight:700; color:#1a1a1a; margin-bottom:20px; text-align:center; }
+
+.bayar-nominal-display { font-size:24px; font-weight:700; color:#1a1a1a; text-align:center; padding:12px; background:#e8e8e8; border-radius:8px; margin-bottom:16px; }
+
+.nominal-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+.nominal-btn { padding:12px 8px; background:#e8e8e8; border:2px solid transparent; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.15s; color:#333; }
+.nominal-btn:hover  { background:#d8d8d8; }
+.nominal-btn.active { background:#fff; border-color:var(--green); color:var(--green); }
+
+.bayar-bank-card { display:flex; align-items:center; gap:12px; background:#e8e8e8; border-radius:10px; padding:14px 16px; }
+.bayar-bank-logo { flex-shrink:0; }
+.bri-logo { font-size:13px; font-weight:700; }
+.bayar-bank-number { flex:1; font-size:14px; font-weight:700; color:#1a73e8; letter-spacing:0.5px; }
+.bayar-copy-btn { background:none; border:none; cursor:pointer; padding:4px; border-radius:6px; transition:background 0.15s; }
+.bayar-copy-btn:hover { background:rgba(0,0,0,0.05); }
+
+.bayar-bukti-area { border:2px dashed #ccc; border-radius:12px; padding:4px; cursor:pointer; min-height:200px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; }
+.bukti-placeholder { width:100%; position:relative; }
+.bukti-mock-receipt { background:#f8fbff; border-radius:8px; padding:16px; margin:8px; }
+.bukti-mock-row { display:flex; justify-content:space-between; padding:8px 0; font-size:13px; color:#555; border-bottom:1px solid #eee; }
+.bukti-mock-row:last-child { border-bottom:none; }
+.bukti-mock-row.header { font-weight:700; color:#1a1a1a; background:#e8f0fe; margin:-16px -16px 8px; padding:12px 16px; border-radius:8px 8px 0 0; }
+.bukti-mock-row.header span:last-child { color:#1a73e8; }
+.bukti-camera-btn { display:flex; justify-content:center; padding:12px 0; }
+
+.bayar-field-label { font-size:13px; color:#555; margin-bottom:8px; font-weight:500; }
+.bayar-input { width:100%; background:#e8e8e8; border:none; border-radius:8px; padding:14px 16px; font-size:14px; color:#1a1a1a; outline:none; margin-bottom:16px; font-family:inherit; }
+.bayar-input:focus { background:#ddd; }
+
+/* Nominal kewajiban display */
+.bayar-kewajiban-nominal { font-size:20px; font-weight:600; color:#1a1a1a; background:#e8e8e8; border-radius:8px; padding:14px 16px; }
+.bkn-green { color:var(--green); font-weight:700; }
+
+.bayar-submit-btn { display:block; width:calc(100% - 48px); margin:16px 24px 0; padding:18px; background:var(--green); color:#fff; border:none; border-radius:10px; font-size:16px; font-weight:800; letter-spacing:2px; cursor:pointer; transition:background 0.2s, transform 0.1s; }
+.bayar-submit-btn:hover  { background:var(--green-dark); }
+.bayar-submit-btn:active { transform:scale(0.98); }

@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-05-18T16:20:26.147Z",
+  "load_test": {
+    "duration": "1 minute",
+    "vus": 50,
+    "http_req_duration_p95": 9.5198,
+    "http_req_duration_p99": "N/A",
+    "error_rate_percent": "50.00",
+    "throughput_rps": 167.59215191081458,
+    "total_requests": 31946
+  },
+  "stress_test": {
+    "max_vus": 200,
+    "http_req_duration_p95": 9.5198,
+    "http_req_duration_p99": "N/A",
+    "error_rate_percent": "50.00",
+    "throughput_rps": 167.59215191081458
+  }
+}

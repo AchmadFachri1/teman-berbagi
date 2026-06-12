@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teman Berbagi — Little Things Mean a Lot</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="stylesheet" href="css/tentang.css" />
+  <link rel="stylesheet" href="css/donasi.css" />
+  <link rel="stylesheet" href="css/bayar.css" />
+  <link rel="stylesheet" href="css/kewajiban.css" />
+  <link rel="stylesheet" href="css/sukses.css" />
+</head>
+
+<body>
+
+  <!-- ======== SPLASH ======== -->
+  <div id="splash">
+    <div class="splash-grid"></div>
+    <div class="splash-glow"></div>
+    <div class="splash-logo-wrap">
+      <div class="splash-icon-box">
+        <svg width="44" height="44" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="3" width="9" height="9" rx="2" fill="white" />
+          <rect x="13" y="3" width="9" height="9" rx="2" fill="white" />
+          <rect x="2" y="14" width="9" height="9" rx="2" fill="white" />
+          <rect x="13" y="14" width="9" height="9" rx="2" fill="white" />
+        </svg>
+      </div>
+      <div class="splash-brand">
+        <div class="splash-brand-name" id="splashBrandName"></div>
+        <div class="splash-brand-tagline">Little things mean a lot</div>
+      </div>
+    </div>
+    <div class="splash-bar-wrap">
+      <div class="splash-bar"></div>
+    </div>
+    <div class="splash-tagline-bottom">Teman Berbagi Kebaikan</div>
+  </div>
+
+  <!-- ======== NAVBAR DARK (auth/info) ======== -->
+  <nav id="mainNav" class="nav-dark">
+    <div class="nav-logo" onclick="showPage('daftar')">
+      <div class="nav-logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="3" width="9" height="9" rx="2" fill="white" opacity="0.9" />
+          <rect x="13" y="3" width="9" height="9" rx="2" fill="white" opacity="0.9" />
+          <rect x="2" y="14" width="9" height="9" rx="2" fill="white" opacity="0.9" />
+          <rect x="13" y="14" width="9" height="9" rx="2" fill="white" opacity="0.9" />
+        </svg>
+      </div>
+      <div class="nav-logo-text">
+        <span class="brand-name">Teman Berbagi</span>
+        <span class="brand-tagline">Little things mean a lot</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <span class="nav-link" id="navTentang" onclick="showPage('tentang')">Tentang</span>
+      <span class="nav-link" id="navKontak" onclick="showPage('kontak')">Kontak</span>
+      <span class="nav-btn" onclick="showPage('masuk')">Masuk/Daftar</span>
+    </div>
+  </nav>
+
+  <!-- ======== NAVBAR LIGHT (donasi/kewajiban) ======== -->
+  <nav id="mainNavLight" class="nav-light" style="display:none">
+
+    <!-- Search Overlay -->
+    <div class="nav-search-overlay" id="searchOverlay">
+      <div class="nso-pill">
+        <button class="nso-icon-btn" onclick="triggerSearch()" aria-label="Cari">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3D2314" stroke-width="2.8"
+            stroke-linecap="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <input type="text" class="nso-input" id="searchOverlayInput" placeholder="Cari program donasi..."
+          oninput="handleSearch(this.value)" onkeydown="if(event.key==='Escape') closeSearch()" autocomplete="off" />
+        <button class="nso-clear-btn" onclick="closeSearch()" aria-label="Tutup">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"
+            stroke-linecap="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="nav-search-results" id="searchResults">
+      <div class="nav-search-results-inner" id="searchResultsInner"></div>
+    </div>
+
+    <!-- Logo -->
+    <div class="nav-logo-light" onclick="showPage('donasi')">
+      <div class="nav-logo-icon-light">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="3" width="9" height="9" rx="2" fill="#3a2e22" />
+          <rect x="13" y="3" width="9" height="9" rx="2" fill="#3a2e22" />
+          <rect x="2" y="14" width="9" height="9" rx="2" fill="#3a2e22" />
+          <rect x="13" y="14" width="9" height="9" rx="2" fill="#3a2e22" />
+        </svg>
+      </div>
+      <div class="nav-logo-text-light">
+        <span class="brand-name-light">Teman Berbagi</span>
+        <span class="brand-tagline-light">Little things mean a lot</span>
+      </div>
+    </div>
+
+    <!-- Tab Links -->
+    <div class="nav-light-center">
+      <button class="nav-light-link" id="lnDonasi" onclick="navTab(this,'donasi')">Donasi</button>
+      <button class="nav-light-link" id="lnKewajiban" onclick="navTab(this,'kewajiban-menu')">Kewajiban</button>
+      <button class="nav-light-link" id="lnDerma" onclick="navTab(this,'donasi')">Derma</button>
+      <button class="nav-light-link" id="lnPilar" onclick="navTab(this,'donasi')">Pilar Kebaikan</button>
+    </div>
+
+    <!-- Kewajiban Dropdown -->
+    <div class="kewajiban-dropdown" id="kewajibDropdown">
+      <button onclick="pilihKewajiban('zakat-fitrah')">Zakat Fitrah</button>
+      <button onclick="pilihKewajiban('persepuhan')">Persepuhan</button>
+      <button onclick="pilihKewajiban('stipendium')">Stipendium</button>
+    </div>
+
+    <!-- Right Controls -->
+    <div class="nav-light-right">
+      <button class="nav-search-trigger" id="searchTriggerBtn" onclick="openSearch()" aria-label="Cari">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"
+          stroke-linecap="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+      <button class="nav-filter-btn" aria-label="Filter">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-linecap="round">
+          <line x1="4" y1="6" x2="20" y2="6" stroke="#222" stroke-width="1.8" />
+          <line x1="4" y1="12" x2="20" y2="12" stroke="#222" stroke-width="1.8" />
+          <line x1="4" y1="18" x2="20" y2="18" stroke="#222" stroke-width="1.8" />
+          <circle cx="8" cy="6" r="2.2" fill="#fff" stroke="#222" stroke-width="1.8" />
+          <circle cx="16" cy="12" r="2.2" fill="#fff" stroke="#222" stroke-width="1.8" />
+          <circle cx="10" cy="18" r="2.2" fill="#fff" stroke="#222" stroke-width="1.8" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ======== PAGE CONTAINERS ======== -->
+  <div id="page-daftar" class="page"></div>
+  <div id="page-masuk" class="page"></div>
+  <div id="page-tentang" class="page"></div>
+  <div id="page-kontak" class="page"></div>
+  <div id="page-donasi" class="page"></div>
+  <div id="page-detail-donasi" class="page"></div>
+  <div id="page-bayar-donasi" class="page"></div>
+  <div id="page-sukses-donasi" class="page"></div>
+  <div id="page-kewajiban" class="page"></div>
+  <div id="page-bayar-kewajiban" class="page"></div>
+  <div id="page-persepuhan" class="page"></div>
+  <div id="page-bayar-persepuhan" class="page"></div>
+  <div id="page-stipendium" class="page"></div>
+  <div id="page-bayar-stipendium" class="page"></div>
+
+  <!-- ======== JAVASCRIPT (urutan: router → pages) ======== -->
+  <script src="js/router.js"></script>
+  <script src="js/pages/daftar.js"></script>
+  <script src="js/pages/masuk.js"></script>
+  <script src="js/pages/tentang.js"></script>
+  <script src="js/pages/kontak.js"></script>
+  <script src="js/pages/donasi.js"></script>
+  <script src="js/pages/kewajiban.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

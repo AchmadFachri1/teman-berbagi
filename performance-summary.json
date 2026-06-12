@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-05-18T16:13:23.269Z",
+  "metrics": {
+    "total_requests": 600,
+    "avg_duration_ms": 13.103141833333328,
+    "p95_duration_ms": 16.5280749999999,
+    "error_rate_percent": 50
+  }
+}
