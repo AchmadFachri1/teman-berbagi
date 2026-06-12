@@ -8,8 +8,8 @@
             "dev": "nodemon server/server.js",
             "test": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --runInBand --detectOpenHandles --forceExit --config jest.config.js",
             "test:coverage": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --coverage --runInBand --forceExit --config jest.config.js",
-            "test:watch": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --watch --config jest.config.js",
-            "test:verbose": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --verbose --runInBand --config jest.config.js"
+            "test:watch": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --watchAll --config jest.config.js",
+            "test:ci": "cross-env NODE_ENV=test JWT_SECRET=testsecretkey12345 jest --ci --runInBand --coverage --forceExit --config jest.config.js"
       },
       "dependencies": {
             "bcryptjs": "^3.0.3",

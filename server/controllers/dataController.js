@@ -72,11 +72,11 @@ exports.createData = async (req, res) => {
     try {
         const { title, description, amount, category, status } = req.body;
 
-        // BUG: category tidak divalidasi! Developer lupa menambahkan 'category'
-        if (!title || !description || !amount) {  // ← category dihapus dari validasi!
+        // Validasi tambahan
+        if (!title || !description || !amount || !category) {
             return res.status(400).json({
                 success: false,
-                message: 'Missing required fields: title, description, amount'
+                message: 'Missing required fields: title, description, amount, category'
             });
         }
 
