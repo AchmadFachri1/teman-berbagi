@@ -6,24 +6,24 @@ const jwt = require('jsonwebtoken');
 
 let mongoServer;
 let globalAuthToken = '';
-let globalUserId = '';
 
 beforeAll(async () => {
-    // Set JWT secret for test environment
+    // Set JWT secret
     process.env.JWT_SECRET = 'testsecretkey12345';
 
-    // Close existing connection if any
+    // Disconnect existing connection
     if (mongoose.connection.readyState !== 0) {
         await mongoose.disconnect();
     }
 
+    // Create in-memory database
     mongoServer = await MongoMemoryServer.create();
     const uri = mongoServer.getUri();
 
     await mongoose.connect(uri);
     console.log('✅ Test database connected');
 
-    // Create test user once for all tests
+    // Create test user
     const hashedPassword = await bcrypt.hash('testpass123', 10);
     const testUser = await User.create({
         username: 'testuser',
@@ -32,21 +32,18 @@ beforeAll(async () => {
         password: hashedPassword
     });
 
-    globalUserId = testUser._id.toString();
-
     // Generate token
     globalAuthToken = jwt.sign(
-        { id: globalUserId },
+        { id: testUser._id.toString() },
         process.env.JWT_SECRET,
         { expiresIn: '7d' }
     );
 
-    // Set global variable for tests
+    // Set global variable
     global.__AUTH_TOKEN__ = globalAuthToken;
-    global.__USER_ID__ = globalUserId;
+    global.__USER_ID__ = testUser._id.toString();
 
-    console.log('✅ Global test user created with token');
-    console.log('Token set in global:', !!global.__AUTH_TOKEN__);
+    console.log('✅ Global test user created');
 }, 60000);
 
 afterEach(async () => {
@@ -63,9 +60,3 @@ afterAll(async () => {
     await mongoServer.stop();
     console.log('✅ Test database disconnected');
 }, 30000);
-
-// Export for use in tests
-module.exports = {
-    getAuthToken: () => globalAuthToken,
-    getUserId: () => globalUserId
-};

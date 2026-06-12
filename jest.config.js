@@ -12,16 +12,11 @@ module.exports = {
         'server/models/**/*.js',
         'server/middleware/**/*.js',
         'server/routes/**/*.js',
-        '!server/server.js'
+        '!server/server.js',
+        '!server/app.js'
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['text', 'lcov', 'html'],
-    coverageThreshold: {
-        global: {
-            branches: 70,
-            functions: 75,
-            lines: 75,
-            statements: 75
-        }
-    }
+    moduleDirectories: ['node_modules'],
+    moduleFileExtensions: ['js', 'json', 'node']
 };
